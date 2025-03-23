@@ -13,7 +13,7 @@ MPU9250 mpu;
 WiFiUDP udp;
 
 // IP i port del receptor
-const char *udpAddress = "192.168.0.191"; // Canvia-ho per la IP del teu ordinador
+const char *udpAddress = "192.168.1.3"; // Canvia-ho per la IP del teu ordinador
 const int udpPort = 12345;               // Port del receptor
 
 // Orientation data
