@@ -1,9 +1,5 @@
 #include <Arduino.h>
-<<<<<<< HEAD
-#line 1 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
-=======
-#line 1 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
->>>>>>> 729aa31091f0a7e69d49d7629076aab36507433c
+#line 1 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 #include <WiFi.h>
 #include <Wire.h>
 #include <WiFiUdp.h>
@@ -18,8 +14,8 @@ const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
 
 // UDP settings
-IPAddress receiverESP32IP(192, 168, 0, 161); // IP address of the receiver ESP32 - CHANGE THIS!
-IPAddress receiverComputerIP(192, 168, 0, 191); // IP address of your computer - CHANGE THIS!
+IPAddress receiverESP32IP(192, 168, 1, 5); // IP address of the receiver ESP32 - CHANGE THIS!
+IPAddress receiverComputerIP(192, 168, 1, 3); // IP address of your computer - CHANGE THIS!
 const int udpPort = 12345;
 
 // UDP object
@@ -30,20 +26,17 @@ MPU9250 mpu;
 // Orientation data
 float roll = 0.0, pitch = 0.0, yaw = 0.0;
 
-<<<<<<< HEAD
-#line 27 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
+#line 27 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void connectToWiFi();
-#line 38 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
+#line 40 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void updateOrientation();
-#line 46 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
+#line 48 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void sendOrientationUDP();
-#line 71 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
+#line 73 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void setup();
-#line 94 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
+#line 96 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void loop();
-#line 27 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
-=======
->>>>>>> 729aa31091f0a7e69d49d7629076aab36507433c
+#line 27 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Sender\\ESP32_Sender.ino"
 void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
   WiFi.begin(ssid, password);
@@ -53,6 +46,8 @@ void connectToWiFi() {
   }
   Serial.println("\nWi-Fi connected!");
   Serial.println("IP Address: " + WiFi.localIP().toString());
+  Serial.print("ESP32 MAC Address: ");
+  Serial.println(WiFi.macAddress());
 }
 
 void updateOrientation() {

@@ -3,9 +3,6 @@
 
 # 4 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino" 2
 
-// Add a device ID
-const int deviceId = 2; // Has to be a number
-
 // Wi-Fi credentials
 const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
@@ -27,6 +24,8 @@ void connectToWiFi() {
   }
   Serial0.println("\nWi-Fi connected!");
   Serial0.println("IP Address: " + WiFi.localIP().toString());
+  Serial0.print("ESP32 MAC Address: ");
+  Serial0.println(WiFi.macAddress());
 }
 
 void receiveOrientationUDP() {
@@ -51,14 +50,14 @@ void receiveOrientationUDP() {
 
       const char* device = doc["device"];
       if (strcmp(device, "ESP32_1") == 0) {
-        roll1 = doc["roll"];
-        pitch1 = doc["pitch"];
-        yaw1 = doc["yaw"];
+        roll1 = round(doc["roll"].as<float>());
+        pitch1 = round(doc["pitch"].as<float>());
+        yaw1 = round(doc["yaw"].as<float>());
         Serial0.print("Roll_1: "); Serial0.print(roll1); Serial0.print(" Pitch_1: "); Serial0.print(pitch1); Serial0.print(" Yaw_1: "); Serial0.println(yaw1);
       } else if (strcmp(device, "ESP32_2") == 0) {
-        roll2 = doc["roll"];
-        pitch2 = doc["pitch"];
-        yaw2 = doc["yaw"];
+        roll2 = round(doc["roll"].as<float>());
+        pitch2 = round(doc["pitch"].as<float>());
+        yaw2 = round(doc["yaw"].as<float>());
         Serial0.print("Roll_2: "); Serial0.print(roll2); Serial0.print(" Pitch_2: "); Serial0.print(pitch2); Serial0.print(" Yaw_2: "); Serial0.println(yaw2);
       } else {
         Serial0.println("Unknown device.");

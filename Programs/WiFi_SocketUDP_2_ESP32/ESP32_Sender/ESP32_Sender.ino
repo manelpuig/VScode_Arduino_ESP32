@@ -1,7 +1,7 @@
 #include <WiFi.h>
-#include <Wire.h>
 #include <WiFiUdp.h>
 #include "MPU9250.h"
+#include <Wire.h> //needed for I2C to read IMU
 #include <ArduinoJson.h>
 
 // Device ID
@@ -12,8 +12,8 @@ const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
 
 // UDP settings
-IPAddress receiverESP32IP(192, 168, 0, 161); // IP address of the receiver ESP32 - CHANGE THIS!
-IPAddress receiverComputerIP(192, 168, 0, 191); // IP address of your computer - CHANGE THIS!
+IPAddress receiverESP32IP(192, 168, 1, 5); // IP address of the receiver ESP32 - CHANGE THIS!
+IPAddress receiverComputerIP(192, 168, 1, 3); // IP address of your computer - CHANGE THIS!
 const int udpPort = 12345;
 
 // UDP object
@@ -33,6 +33,8 @@ void connectToWiFi() {
   }
   Serial.println("\nWi-Fi connected!");
   Serial.println("IP Address: " + WiFi.localIP().toString());
+  Serial.print("ESP32 MAC Address: ");
+  Serial.println(WiFi.macAddress());
 }
 
 void updateOrientation() {
@@ -70,7 +72,7 @@ void sendOrientationUDP() {
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin();
+  Wire.begin();//needed for I2C to read IMU
   delay(2000);
 
   // Inicialitza el MPU-9250

@@ -14,7 +14,7 @@ MPU9250 mpu;
 WiFiUDP udp;
 
 // IP i port del receptor
-const char *udpAddress = "192.168.0.191"; // Canvia-ho per la IP del teu ordinador
+const char *udpAddress = "192.168.1.3"; // Canvia-ho per la IP del teu ordinador
 const int udpPort = 12345; // Port del receptor
 
 // Orientation data
@@ -29,6 +29,8 @@ void connectToWiFi() {
   }
   Serial0.println("\nWi-Fi connected!");
   Serial0.println("IP Address: " + WiFi.localIP().toString());
+  Serial0.print("ESP32 MAC Address: ");
+  Serial0.println(WiFi.macAddress());
 }
 
 void updateOrientation() {

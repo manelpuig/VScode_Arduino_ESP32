@@ -2,9 +2,6 @@
 #include <WiFiUdp.h>
 #include <ArduinoJson.h>
 
-// Add a device ID
-const int deviceId = 2; // Has to be a number
-
 // Wi-Fi credentials
 const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
@@ -26,6 +23,8 @@ void connectToWiFi() {
   }
   Serial.println("\nWi-Fi connected!");
   Serial.println("IP Address: " + WiFi.localIP().toString());
+  Serial.print("ESP32 MAC Address: ");
+  Serial.println(WiFi.macAddress());
 }
 
 void receiveOrientationUDP() {
@@ -50,14 +49,14 @@ void receiveOrientationUDP() {
 
       const char* device = doc["device"];
       if (strcmp(device, "ESP32_1") == 0) {
-        roll1 = doc["roll"];
-        pitch1 = doc["pitch"];
-        yaw1 = doc["yaw"];
+        roll1 = round(doc["roll"].as<float>());
+        pitch1 = round(doc["pitch"].as<float>());
+        yaw1 = round(doc["yaw"].as<float>());
         Serial.print("Roll_1: "); Serial.print(roll1); Serial.print(" Pitch_1: "); Serial.print(pitch1); Serial.print(" Yaw_1: "); Serial.println(yaw1);
       } else if (strcmp(device, "ESP32_2") == 0) {
-        roll2 = doc["roll"];
-        pitch2 = doc["pitch"];
-        yaw2 = doc["yaw"];
+        roll2 = round(doc["roll"].as<float>());
+        pitch2 = round(doc["pitch"].as<float>());
+        yaw2 = round(doc["yaw"].as<float>());
         Serial.print("Roll_2: "); Serial.print(roll2); Serial.print(" Pitch_2: "); Serial.print(pitch2); Serial.print(" Yaw_2: "); Serial.println(yaw2);
       } else {
         Serial.println("Unknown device.");

@@ -15,7 +15,7 @@ MPU9250 mpu;
 WiFiUDP udp;
 
 // IP i port del receptor
-const char *udpAddress = "192.168.0.191"; // Canvia-ho per la IP del teu ordinador
+const char *udpAddress = "192.168.1.3"; // Canvia-ho per la IP del teu ordinador
 const int udpPort = 12345;               // Port del receptor
 
 // Orientation data
@@ -23,13 +23,13 @@ float roll = 0.0, pitch = 0.0, yaw = 0.0;
 
 #line 22 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void connectToWiFi();
-#line 33 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
+#line 35 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void updateOrientation();
-#line 41 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
+#line 43 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void sendOrientationUDP();
-#line 56 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
+#line 58 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void setup();
-#line 79 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
+#line 81 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void loop();
 #line 22 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino"
 void connectToWiFi() {
@@ -41,6 +41,8 @@ void connectToWiFi() {
   }
   Serial.println("\nWi-Fi connected!");
   Serial.println("IP Address: " + WiFi.localIP().toString());
+  Serial.print("ESP32 MAC Address: ");
+  Serial.println(WiFi.macAddress());
 }
 
 void updateOrientation() {

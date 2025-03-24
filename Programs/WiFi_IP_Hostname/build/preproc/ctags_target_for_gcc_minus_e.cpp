@@ -6,8 +6,8 @@ const char* ssid = "Robotics_UB";
 const char* password = "rUBot_xx"; // Replace with your Wi-Fi password
 
 // Network settings
-IPAddress local_IP(192, 168, 0, 100); // Replace with your desired fixed IP
-IPAddress gateway(192, 168, 0, 1);
+IPAddress local_IP(192, 168, 1, 100); // Replace with your desired fixed IP
+IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(8, 8, 8, 8); // Optional: set a secondary DNS if needed
 

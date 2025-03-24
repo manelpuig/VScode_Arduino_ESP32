@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <WiFiUdp.h>
 #include <Wire.h>
 #include "MPU9250.h"
 
@@ -28,6 +29,8 @@ void connectToWiFi() {
   }
   Serial.println("\nWi-Fi connected!");
   Serial.println("IP Address: " + WiFi.localIP().toString());
+  Serial.print("ESP32 MAC Address: ");
+  Serial.println(WiFi.macAddress());
 }
 
 void updateOrientation() {

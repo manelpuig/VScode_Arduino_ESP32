@@ -25,7 +25,7 @@ try:
                 roll1 = roll
                 pitch1 = pitch
                 yaw1 = yaw
-                print(f"Data from {device_id}: Roll_1: {roll1:.2f}, Pitch_1: {pitch1:.2f}, Yaw_1: {yaw1:.2f}")
+                print(f"Data from {device_id}: Roll_1: {roll1:.0f}, Pitch_1: {pitch1:.0f}, Yaw_1: {yaw1:.0f}")
             elif device_id=="ESP32_2": 
                 roll2 = roll
                 pitch2 = pitch

@@ -1,8 +1,4 @@
-<<<<<<< HEAD:Programs/WiFi_SocketUDP_2_ESP32/ESP32_Sender/build/libraries/WiFi/AP.cpp.d
-C:\Users\puigm\OneDrive\ -\ Universitat\ de\ Barcelona\Documents\02_Docencia_Manel\01_Eines_HW_SW\03_SW\11_Arduino_VScode\VScode_Arduino_ESP32\Programs\WiFi_SocketUDP_2_ESP32\ESP32_Sender\build\libraries\WiFi\AP.cpp.o: \
-=======
 C:\Users\puigm\OneDrive\ -\ Universitat\ de\ Barcelona\Documents\02_Docencia_Manel\Classes_PROJ\TP\VScode_Arduino_ESP32\Programs\WiFi_IP_Hostname\build\libraries\WiFi\AP.cpp.o: \
->>>>>>> 729aa31091f0a7e69d49d7629076aab36507433c:Programs/WiFi_IP_Hostname/build/libraries/WiFi/AP.cpp.d
  C:\Users\puigm\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.0.7\libraries\WiFi\src\AP.cpp \
  C:\Users\puigm\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.0.7\libraries\WiFi\src\WiFi.h \
  C:\Users\puigm\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.1-632e0c2a\esp32/include/soc/esp32/include/soc/soc_caps.h \
