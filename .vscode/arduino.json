@@ -1,7 +1,7 @@
 {
-    "sketch": "Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino",
-    "configuration": "JTAGAdapter=default,PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,LoopCore=1,EventsCore=1,DebugLevel=none,EraseFlash=none,ZigbeeMode=default",
+    "sketch": "Programs\\WiFi_SocketUDP_IMU\\WiFi_SocketUDP_IMU.ino",
+    "configuration": "PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,LoopCore=1,EventsCore=1,DebugLevel=none",
     "board": "esp32:esp32:esp32",
     "port": "COM3",
-    "output": "Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\build"
+    "output": "Programs\\WiFi_SocketUDP_IMU\\build"
 }

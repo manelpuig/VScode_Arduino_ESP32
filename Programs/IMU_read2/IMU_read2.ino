@@ -20,7 +20,7 @@ void setup() {
 void loop() {
   if (mpu.update()) {
     static uint32_t prev_ms = millis();
-    if (millis() > prev_ms + 200) { // Update and send data every 25ms (40Hz)
+    if (millis() > prev_ms + 25) { // Update and send data every 25ms (40Hz)
       prev_ms = millis();
       send_rpy_serial();
     }
