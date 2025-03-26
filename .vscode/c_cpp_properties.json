@@ -27,21 +27,6 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-<<<<<<< HEAD
-                "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\01_Eines_HW_SW\\03_SW\\11_Arduino_VScode\\VScode_Arduino_ESP32\\Programs\\ESP32_Hostname_IP",
-                "C:\\Users\\puigm\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.1-632e0c2a\\esp32\\qio_qspi\\include",
-                "C:\\Users\\puigm\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.0.7\\cores\\esp32",
-                "C:\\Users\\puigm\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.0.7\\variants\\esp32",
-                "C:\\Users\\puigm\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.0.7\\libraries\\WiFi\\src",
-                "C:\\Users\\puigm\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.0.7\\libraries\\Network\\src",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\xtensa-esp32-elf\\include\\c++\\12.2.0",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\xtensa-esp32-elf\\include\\c++\\12.2.0\\xtensa-esp32-elf",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\xtensa-esp32-elf\\include\\c++\\12.2.0\\backward",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\lib\\gcc\\xtensa-esp32-elf\\12.2.0\\include",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\lib\\gcc\\xtensa-esp32-elf\\12.2.0\\include-fixed",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\xtensa-esp32-elf\\sys-include",
-                "c:\\users\\puigm\\appdata\\local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2302\\xtensa-esp32-elf\\include"
-=======
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\tools\\sdk\\esp32\\include\\newlib\\platform_include",
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\tools\\sdk\\esp32\\include\\freertos\\include",
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\tools\\sdk\\esp32\\include\\freertos\\include\\esp_additions\\freertos",
@@ -230,9 +215,9 @@
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\tools\\sdk\\esp32\\qio_qspi\\include",
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\cores\\esp32",
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\variants\\esp32",
+                "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\WiFi\\src",
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\Wire\\src",
                 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documentos\\Arduino\\libraries\\MPU9250",
-                "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BluetoothSerial\\src",
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\xtensa-esp32-elf\\include\\c++\\8.4.0",
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\xtensa-esp32-elf\\include\\c++\\8.4.0\\xtensa-esp32-elf",
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\xtensa-esp32-elf\\include\\c++\\8.4.0\\backward",
@@ -240,7 +225,6 @@
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\lib\\gcc\\xtensa-esp32-elf\\8.4.0\\include-fixed",
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\xtensa-esp32-elf\\sys-include",
                 "c:\\users\\manel.puig\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2-patch3\\xtensa-esp32-elf\\include"
->>>>>>> 729aa31091f0a7e69d49d7629076aab36507433c
             ],
             "forcedInclude": [
                 "C:\\Users\\manel.puig\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\cores\\esp32\\Arduino.h"
