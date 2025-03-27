@@ -21,12 +21,12 @@ try:
             pitch = orientation.get("pitch")
             yaw = orientation.get("yaw")
 
-            if device_id=="ESP32_1": 
+            if device_id=="G1_Endo": 
                 roll1 = roll
                 pitch1 = pitch
                 yaw1 = yaw
                 print(f"Data from {device_id}: Roll_1: {roll1:.0f}, Pitch_1: {pitch1:.0f}, Yaw_1: {yaw1:.0f}")
-            elif device_id=="ESP32_2": 
+            elif device_id=="G1_Gri": 
                 roll2 = roll
                 pitch2 = pitch
                 yaw2 = yaw

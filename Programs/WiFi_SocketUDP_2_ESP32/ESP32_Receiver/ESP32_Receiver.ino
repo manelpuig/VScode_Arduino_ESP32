@@ -48,12 +48,12 @@ void receiveOrientationUDP() {
       }
 
       const char* device = doc["device"];
-      if (strcmp(device, "ESP32_1") == 0) {
+      if (strcmp(device, "G1_Endo") == 0) {
         roll1 = round(doc["roll"].as<float>());
         pitch1 = round(doc["pitch"].as<float>());
         yaw1 = round(doc["yaw"].as<float>());
         Serial.print("Roll_1: "); Serial.print(roll1); Serial.print(" Pitch_1: "); Serial.print(pitch1); Serial.print(" Yaw_1: "); Serial.println(yaw1);
-      } else if (strcmp(device, "ESP32_2") == 0) {
+      } else if (strcmp(device, "G1_Gri") == 0) {
         roll2 = round(doc["roll"].as<float>());
         pitch2 = round(doc["pitch"].as<float>());
         yaw2 = round(doc["yaw"].as<float>());

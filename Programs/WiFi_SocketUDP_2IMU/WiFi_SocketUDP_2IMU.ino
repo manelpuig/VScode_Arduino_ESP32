@@ -4,8 +4,8 @@
 #include "MPU9250.h"
 
 // Wi-Fi credentials
-const char *ssid = "STRONG_ATRIA_AY4U_2.4";
-const char *password = "3HCG3ykAUc";
+const char *ssid = "Robotics_UB";
+const char *password = "rUBot_xx";
 
 // Add a device ID
 const int deviceId = 1; // Has to be a number
@@ -17,7 +17,7 @@ MPU9250 mpu;
 WiFiUDP udp;
 
 // IP i port del receptor
-const char *udpAddress = "192.168.67.66"; // Canvia-ho per la IP del teu ordinador
+const char *udpAddress = "192.168.1.3"; // Canvia-ho per la IP del teu ordinador
 const int udpPort = 12345;               // Port del receptor
 
 // Orientation data

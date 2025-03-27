@@ -5,7 +5,7 @@
 #include <ArduinoJson.h>
 
 // Device ID
-const char *deviceId = "ESP32_1";
+const char *deviceId = "G1_Endo";
 
 // Wi-Fi credentials
 const char *ssid = "Robotics_UB";
