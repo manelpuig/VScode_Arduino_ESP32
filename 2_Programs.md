@@ -8,6 +8,12 @@ A first simple program is created to read IMU MPU9250 sensor. We can use the lib
 - SparkFunMPU9250-DMP (IMU_read1.ino)
 - MPU9250 by hideakitai (IMU_read2.ino)
 
+For the second library you have to install it:
+- Press crtl+shift+p
+- type Arduino and select "library manager"
+- type MPU9250 and select the one from hideakitai
+- install
+
 We propose you some sample programs to review the communication performances using:
 - Bluetooth 
 - WiFi
