@@ -20,7 +20,6 @@ try:
             roll = orientation.get("roll")
             pitch = orientation.get("pitch")
             yaw = orientation.get("yaw")
-
             if device_id==1: 
                 roll1 = roll
                 pitch1 = pitch

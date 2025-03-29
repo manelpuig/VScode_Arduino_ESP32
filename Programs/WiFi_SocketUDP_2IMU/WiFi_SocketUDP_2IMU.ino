@@ -8,7 +8,7 @@ const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
 
 // Add a device ID
-const int deviceId = 1; // Has to be a number
+const int deviceId = 1; 
 
 // MPU-9250 object
 MPU9250 mpu;
@@ -51,7 +51,7 @@ void sendOrientationUDP() {
   json += "\"yaw\":" + String(yaw, 2);
   json += "}";
   // Print to Serial Monitor
-  Serial.println("Sending data: " + json);
+  //Serial.println("Sending data: " + json);
   // Envia les dades via UDP
   udp.beginPacket(udpAddress, udpPort);
   udp.print(json);

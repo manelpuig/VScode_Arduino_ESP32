@@ -1,5 +1,7 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
+#include "MPU9250.h"
+#include <Wire.h> //needed for I2C to read IMU
 #include <ArduinoJson.h>
 
 // Wi-Fi credentials
@@ -53,11 +55,6 @@ void receiveOrientationUDP() {
         pitch1 = round(doc["pitch"].as<float>());
         yaw1 = round(doc["yaw"].as<float>());
         Serial.print("Roll_1: "); Serial.print(roll1); Serial.print(" Pitch_1: "); Serial.print(pitch1); Serial.print(" Yaw_1: "); Serial.println(yaw1);
-      } else if (strcmp(device, "G1_Gri") == 0) {
-        roll2 = round(doc["roll"].as<float>());
-        pitch2 = round(doc["pitch"].as<float>());
-        yaw2 = round(doc["yaw"].as<float>());
-        Serial.print("Roll_2: "); Serial.print(roll2); Serial.print(" Pitch_2: "); Serial.print(pitch2); Serial.print(" Yaw_2: "); Serial.println(yaw2);
       } else {
         Serial.println("Unknown device.");
       }

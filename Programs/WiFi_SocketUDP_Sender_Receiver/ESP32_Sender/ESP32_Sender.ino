@@ -15,12 +15,11 @@ const char *password = "rUBot_xx";
 IPAddress receiverESP32IP(192, 168, 1, 5); // IP address of the receiver ESP32 - CHANGE THIS!
 IPAddress receiverComputerIP(192, 168, 1, 3); // IP address of your computer - CHANGE THIS!
 const int udpPort = 12345;
-
-// UDP object
 WiFiUDP udp;
 
 // MPU-9250 object
 MPU9250 mpu;
+
 // Orientation data
 float roll = 0.0, pitch = 0.0, yaw = 0.0;
 

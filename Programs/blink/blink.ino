@@ -1,5 +1,5 @@
 //Test program
-const uint8_t led = 2;
+const uint8_t led = 2;//13 for Arduino UNO
 
 void setup()
 {
