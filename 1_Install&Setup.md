@@ -30,6 +30,7 @@ Select the Settings from this extension and verify:
 - Arduino: Disable Intelli Sense Auto Gen (Selected)
 - Arduino: Disable Testing Open (SELECTED)
 - Arduino: Enable USBDetection (SELECTED)
+- Arduino Log level (Verbose to see the details)
 - Arduino: Use Arduino CLI (SELECTED)
 
 With these options the VScode will automatically configure the Arduino project

@@ -1,7 +1,9 @@
 #include <Arduino.h>
-#line 1 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 1 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 #include <WiFi.h>
 #include <WiFiUdp.h>
+#include "MPU9250.h"
+#include <Wire.h> //needed for I2C to read IMU
 #include <ArduinoJson.h>
 
 // Wi-Fi credentials
@@ -16,15 +18,15 @@ WiFiUDP udp;
 float roll1 = 0.0, pitch1 = 0.0, yaw1 = 0.0;
 float roll2 = 0.0, pitch2 = 0.0, yaw2 = 0.0;
 
-#line 17 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 19 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 void connectToWiFi();
-#line 30 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 32 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 void receiveOrientationUDP();
-#line 68 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 65 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 void setup();
-#line 75 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 72 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 void loop();
-#line 17 "C:\\Users\\puigm\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_2_ESP32\\ESP32_Receiver\\ESP32_Receiver.ino"
+#line 19 "C:\\Users\\manel.puig\\OneDrive - Universitat de Barcelona\\Documents\\02_Docencia_Manel\\Classes_PROJ\\TP\\VScode_Arduino_ESP32\\Programs\\WiFi_SocketUDP_Sender_Receiver\\ESP32_Receiver\\ESP32_Receiver.ino"
 void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
   WiFi.begin(ssid, password);
@@ -59,16 +61,11 @@ void receiveOrientationUDP() {
       }
 
       const char* device = doc["device"];
-      if (strcmp(device, "ESP32_1") == 0) {
+      if (strcmp(device, "G6_Endo") == 0) {
         roll1 = round(doc["roll"].as<float>());
         pitch1 = round(doc["pitch"].as<float>());
         yaw1 = round(doc["yaw"].as<float>());
         Serial.print("Roll_1: "); Serial.print(roll1); Serial.print(" Pitch_1: "); Serial.print(pitch1); Serial.print(" Yaw_1: "); Serial.println(yaw1);
-      } else if (strcmp(device, "ESP32_2") == 0) {
-        roll2 = round(doc["roll"].as<float>());
-        pitch2 = round(doc["pitch"].as<float>());
-        yaw2 = round(doc["yaw"].as<float>());
-        Serial.print("Roll_2: "); Serial.print(roll2); Serial.print(" Pitch_2: "); Serial.print(pitch2); Serial.print(" Yaw_2: "); Serial.println(yaw2);
       } else {
         Serial.println("Unknown device.");
       }

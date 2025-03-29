@@ -50,7 +50,7 @@ void receiveOrientationUDP() {
       }
 
       const char* device = doc["device"];
-      if (strcmp(device, "G1_Endo") == 0) {
+      if (strcmp(device, "G6_Endo") == 0) {
         roll1 = round(doc["roll"].as<float>());
         pitch1 = round(doc["pitch"].as<float>());
         yaw1 = round(doc["yaw"].as<float>());

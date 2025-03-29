@@ -5,14 +5,14 @@
 #include <ArduinoJson.h>
 
 // Device ID
-const char *deviceId = "G1_Endo";
+const char *deviceId = "G6_Endo";
 
 // Wi-Fi credentials
 const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
 
 // UDP settings
-IPAddress receiverESP32IP(192, 168, 1, 5); // IP address of the receiver ESP32 - CHANGE THIS!
+IPAddress receiverESP32IP(192, 168, 1, 6); // IP address of the receiver ESP32 - CHANGE THIS!
 IPAddress receiverComputerIP(192, 168, 1, 3); // IP address of your computer - CHANGE THIS!
 const int udpPort = 12345;
 WiFiUDP udp;

@@ -145,9 +145,15 @@ Programs:
 
     ESP32_1 and ESP32_2 sends IMU data to computer
 
-- **WiFi_SocketUDP_2_ESP32** 
+- **WiFi_SocketUDP_Sender_Receiver** 
 
     ESP32_receiver listen RPY data from ESP32 sender and ESP32_sender sends RPY data to ESP32_receiver and computer.
+
+    We need to install "ArduinoJson" library:
+    - Find the "ArduinoJson by Benoît Blanchon" library in the search results.
+    - Click on the "Install" button.
+
+    The description of the program:
     - ESP32_receiver (**ESP32_Receiver.ino**):
         - connects to the WiFi network 
         - displays its IP address on setup
