@@ -21,7 +21,7 @@ WiFiUDP udp;
 MPU9250 mpu;
 
 // Orientation data
-float roll = 0.0, pitch = 0.0, yaw = 0.0;
+float Gri_roll = 0.0, Gri_pitch = 0.0, Gri_yaw = 0.0;
 
 void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
@@ -38,18 +38,18 @@ void connectToWiFi() {
 
 void updateOrientation() {
   if (mpu.update()) {
-    yaw = -mpu.getYaw();
-    pitch = -mpu.getPitch();
-    roll = mpu.getRoll();
+    Gri_yaw = -mpu.getYaw();
+    Gri_pitch = -mpu.getPitch();
+    Gri_roll = mpu.getRoll();
   }
 }
 
 void sendOrientationUDP() {
   StaticJsonDocument<256> doc;
   doc["device"] = deviceId;
-  doc["roll"] = roll;
-  doc["pitch"] = pitch;
-  doc["yaw"] = yaw;
+  doc["roll"] = Gri_roll;
+  doc["pitch"] = Gri_pitch;
+  doc["yaw"] = Gri_yaw;
 
   char jsonBuffer[512];
   size_t bytes = serializeJson(doc, jsonBuffer);
