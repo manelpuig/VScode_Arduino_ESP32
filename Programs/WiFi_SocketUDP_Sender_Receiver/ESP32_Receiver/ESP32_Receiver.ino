@@ -4,17 +4,24 @@
 #include <Wire.h> //needed for I2C to read IMU
 #include <ArduinoJson.h>
 
+// Device ID
+const char *deviceId = "G6_Gri";
+
 // Wi-Fi credentials
 const char *ssid = "Robotics_UB";
 const char *password = "rUBot_xx";
 
 // UDP settings
+IPAddress receiverComputerIP(192, 168, 1, 3); // IP address of your computer - CHANGE THIS!
 const int udpPort = 12345;
 WiFiUDP udp;
 
+// MPU-9250 object
+MPU9250 mpu;
+
 // Variables to store received data
-float roll1 = 0.0, pitch1 = 0.0, yaw1 = 0.0;
-float roll2 = 0.0, pitch2 = 0.0, yaw2 = 0.0;
+float Endo_roll = 0.0, Endo_pitch = 0.0, Endo_yaw = 0.0;
+float Gri_roll = 0.0, Gri_pitch = 0.0, Gri_yaw = 0.0;
 
 void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
@@ -27,6 +34,33 @@ void connectToWiFi() {
   Serial.println("IP Address: " + WiFi.localIP().toString());
   Serial.print("ESP32 MAC Address: ");
   Serial.println(WiFi.macAddress());
+}
+
+void updateOrientation() {
+  if (mpu.update()) {
+    Gri_yaw = -mpu.getYaw();
+    Gri_pitch = -mpu.getPitch();
+    Gri_roll = mpu.getRoll();
+  }
+}
+
+void sendOrientationUDP() {
+  StaticJsonDocument<256> doc;
+  doc["device"] = deviceId;
+  doc["roll"] = Gri_roll;
+  doc["pitch"] = Gri_pitch;
+  doc["yaw"] = Gri_yaw;
+
+  char jsonBuffer[512];
+  size_t bytes = serializeJson(doc, jsonBuffer);
+    if (bytes == 0){
+        Serial.println(F("Serialization Failed"));
+        return;
+    }
+  // Send to Computer
+  udp.beginPacket(receiverComputerIP, udpPort);
+  udp.write((const uint8_t*)jsonBuffer, bytes); // Cast to const uint8_t*
+  udp.endPacket();
 }
 
 void receiveOrientationUDP() {
@@ -51,10 +85,10 @@ void receiveOrientationUDP() {
 
       const char* device = doc["device"];
       if (strcmp(device, "G6_Endo") == 0) {
-        roll1 = round(doc["roll"].as<float>());
-        pitch1 = round(doc["pitch"].as<float>());
-        yaw1 = round(doc["yaw"].as<float>());
-        Serial.print("Roll_1: "); Serial.print(roll1); Serial.print(" Pitch_1: "); Serial.print(pitch1); Serial.print(" Yaw_1: "); Serial.println(yaw1);
+        Endo_roll = round(doc["roll"].as<float>());
+        Endo_pitch = round(doc["pitch"].as<float>());
+        Endo_yaw = round(doc["yaw"].as<float>());
+        Serial.print("Endo_Roll: "); Serial.print(Endo_roll); Serial.print(" Endo_Pitch: "); Serial.print(Endo_pitch); Serial.print(" Endo_Yaw: "); Serial.println(Endo_yaw);
       } else {
         Serial.println("Unknown device.");
       }
@@ -64,12 +98,29 @@ void receiveOrientationUDP() {
 
 void setup() {
   Serial.begin(115200);
+  Wire.begin();//needed for I2C to read IMU
+  delay(2000);
+
+  // Inicialitza el MPU-9250
+  if (!mpu.setup(0x68)) {
+    while (1) {
+      Serial.println("MPU connection failed. Please check your connection with `connection_check` example.");
+      delay(5000);
+    }
+  }
+  Serial.println("MPU connected");
+  delay(2000);
+
+  // Connect to WiFi network
   connectToWiFi();
+  // Init UDP
   udp.begin(udpPort);
-  Serial.println("UDP receiver started");
+  Serial.println("UDP initialized");
 }
 
 void loop() {
   receiveOrientationUDP();
+  updateOrientation(); // Update IMU data from Gripper
+  sendOrientationUDP(); // Send IMU data to computer with UDP
   delay(10);
 }
