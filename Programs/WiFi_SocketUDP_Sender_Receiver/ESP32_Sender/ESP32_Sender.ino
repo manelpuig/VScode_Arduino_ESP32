@@ -21,7 +21,7 @@ WiFiUDP udp;
 MPU9250 mpu;
 
 // Orientation data
-float Gri_roll = 0.0, Gri_pitch = 0.0, Gri_yaw = 0.0;
+float Endo_roll = 0.0, Endo_pitch = 0.0, Endo_yaw = 0.0;
 
 void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
@@ -38,18 +38,18 @@ void connectToWiFi() {
 
 void updateOrientation() {
   if (mpu.update()) {
-    Gri_yaw = -mpu.getYaw();
-    Gri_pitch = -mpu.getPitch();
-    Gri_roll = mpu.getRoll();
+    Endo_yaw = -mpu.getYaw();
+    Endo_pitch = -mpu.getPitch();
+    Endo_roll = mpu.getRoll();
   }
 }
 
 void sendOrientationUDP() {
   StaticJsonDocument<256> doc;
   doc["device"] = deviceId;
-  doc["roll"] = Gri_roll;
-  doc["pitch"] = Gri_pitch;
-  doc["yaw"] = Gri_yaw;
+  doc["roll"] = Endo_roll;
+  doc["pitch"] = Endo_pitch;
+  doc["yaw"] = Endo_yaw;
 
   char jsonBuffer[512];
   size_t bytes = serializeJson(doc, jsonBuffer);
@@ -93,7 +93,7 @@ void setup() {
 }
 
 void loop() {
-  updateOrientation(); // Actualitza les dades del sensor
-  sendOrientationUDP(); // Envia les dades al receptor via UDP
-  delay(10); // Ajusta la freqüència d'enviament si cal
+  updateOrientation(); // Update Endo RPY data
+  sendOrientationUDP(); // Send Endo RPY data to Gripper and Computer with UDP
+  delay(10); // sending rate
 }
